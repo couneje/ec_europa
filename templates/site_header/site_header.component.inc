@@ -42,6 +42,9 @@ function ec_europa_atomium_theme_site_header() {
             ),
           ),
         ),
+        'site_slogan' => array(
+          '#theme' => _atomium_extend_theme_hook('site_slogan'),
+        ),
       ),
     ),
   );
@@ -64,7 +67,6 @@ function ec_europa_atomium_definition_site_header() {
 function ec_europa_preprocess_site_header(&$variables, $hook) {
   $variables['#atomium_recursive'] = TRUE;
   $variables['menu'] = _atomium_block_get_render_array('system', 'user-menu');
-
   // There is a bigger probability that visited pages would not be the homepage.
   // So, instead of using a negative condition (!drupal_is_front_page()),
   // I check only when we are on frontpage.
